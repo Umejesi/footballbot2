@@ -1,0 +1,22 @@
+services:
+  - type: worker
+    name: footballai-bot
+    env: python
+    rootDir: .
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot/main.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: FOOTBALL_API_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: CHANNEL_ID
+        value: "@FOOTBALLAIOFFICIAL"
+      - key: CHANNEL_USERNAME
+        value: "FOOTBALLAIOFFICIAL"
+      - key: ADMIN_ID
+        sync: false
+      - key: DATABASE_URL
+        value: "sqlite:///bot.db"
